@@ -1,0 +1,157 @@
+/* ===== SECTION TENTANG KAMI ===== */
+.pwb-about {
+    background: #ffffff;
+    padding: 110px 0;
+    scroll-margin-top: 96px;          /* agar tidak tertutup navbar saat klik anchor */
+}
+
+.pwb-about-inner {
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 0 clamp(24px, 7.8vw, 150px);
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr;
+    gap: clamp(32px, 3vw, 56px);
+    align-items: center;
+}
+
+/* ----- Kiri: teks ----- */
+.pwb-label {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(14px, 1.05vw, 20px);
+    color: #1453ae;
+    margin-bottom: 18px;
+}
+
+.pwb-label-line {
+    width: 117px;
+    max-width: 14vw;
+    height: 3px;
+    background: #d32a26;
+}
+
+.pwb-about-title {
+    font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    font-weight: 700;
+    font-size: clamp(36px, 3.4vw, 65px);
+    line-height: 1;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: #1453ae;
+    margin: 0 0 24px;
+}
+
+.pwb-about-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(16px, 1.46vw, 28px);
+    line-height: 1.46;
+    color: #4a5568;
+    max-width: 720px;
+    margin: 0 0 44px;
+}
+
+.pwb-about-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: #1453ae;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(15px, 1.2vw, 22px);
+    text-decoration: none;
+    padding: 18px 42px;
+    border-radius: 6px;
+    transition: background-color .2s ease, transform .15s ease;
+}
+
+.pwb-about-btn:hover {
+    background: #1453ae;
+    transform: translateY(-2px);
+}
+
+.pwb-about .pwb-arrow {
+    width: 1.3em;
+    height: 1.3em;
+}
+
+/* ----- Tengah: foto ----- */
+.pwb-about-photo img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 443 / 474;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* ----- Kanan: visi, misi, nilai ----- */
+.pwb-about-points {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(24px, 2.6vw, 48px);
+}
+
+.pwb-point {
+    display: flex;
+    align-items: center;
+    gap: clamp(14px, 1.4vw, 24px);
+}
+
+.pwb-point-icon {
+    flex: 0 0 clamp(44px, 3.9vw, 76px);
+    width: clamp(44px, 3.9vw, 76px);
+    color: #0b3a82;
+}
+
+.pwb-point-icon svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.pwb-point-title {
+    font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    font-weight: 700;
+    font-size: clamp(28px, 2.1vw, 40px);
+    line-height: 1;
+    text-transform: uppercase;
+    color: #1453ae;
+    margin: 0 0 6px;
+}
+
+.pwb-point-text {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(14px, 1.15vw, 22px);
+    line-height: 1.35;
+    color: #414D5E;
+    margin: 0;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1100px) {
+    .pwb-about { padding: 80px 0; }
+
+    .pwb-about-inner {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .pwb-about-points {
+        grid-column: 1 / -1;
+        flex-direction: row;
+        gap: 32px;
+    }
+
+    .pwb-point { flex: 1; align-items: flex-start; }
+}
+
+@media (max-width: 700px) {
+    .pwb-about { padding: 56px 0; }
+
+    .pwb-about-inner { grid-template-columns: 1fr; }
+
+    .pwb-about-points { flex-direction: column; }
+
+    .pwb-about-btn { padding: 14px 28px; }
+}

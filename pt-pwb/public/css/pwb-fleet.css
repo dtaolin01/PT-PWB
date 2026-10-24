@@ -1,0 +1,139 @@
+/* ===== SECTION ARMADA KAMI ===== */
+.pwb-fleet {
+    background: #ffffff;
+    padding: 110px 0;
+    scroll-margin-top: 96px;
+}
+
+.pwb-fleet-inner {
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 0 clamp(24px, 7.8vw, 150px);
+    display: grid;
+    grid-template-columns: 646fr 1032fr;
+    gap: clamp(24px, 1.9vw, 36px);
+    align-items: stretch;
+}
+
+/* ----- Foto ----- */
+.pwb-fleet-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 320px;
+    object-fit: cover;
+}
+
+/* ----- Teks ----- */
+/* Label (garis merah + teks) memakai .pwb-label dari pwb-about.css */
+
+.pwb-fleet-title {
+    font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    font-weight: 700;
+    font-size: clamp(32px, 3.4vw, 65px);
+    line-height: 1;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: #1453ae;
+    margin: 0 0 14px;
+}
+
+.pwb-fleet-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(15px, 1.46vw, 28px);
+    line-height: 1.46;
+    color: #414D5E;
+    margin: 0 0 22px;
+}
+
+/* ----- Kartu ----- */
+.pwb-fleet-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(14px, 1.45vw, 28px);
+}
+
+.pwb-fleet-card {
+    background: #F3F6FA;
+    border-radius: 10px;
+    padding: clamp(14px, 0.95vw, 18px) clamp(14px, 1vw, 20px) clamp(20px, 1.6vw, 30px);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.pwb-fleet-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 24px rgba(21, 83, 181, .12);
+}
+
+.pwb-fleet-card-head {
+    display: flex;
+    align-items: center;
+    gap: clamp(10px, 1vw, 18px);
+    margin-bottom: clamp(10px, 0.8vw, 16px);
+}
+
+.pwb-fleet-icon {
+    flex: 0 0 clamp(48px, 4.1vw, 79px);
+    width: clamp(48px, 4.1vw, 79px);
+    height: clamp(48px, 4.1vw, 79px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pwb-fleet-icon img {
+    width: 58%;
+    height: 58%;
+    object-fit: contain;
+    display: block;
+}
+
+.pwb-fleet-icon--blue   { background: #1553b5; }
+.pwb-fleet-icon--red    { background: #cc2724; }
+.pwb-fleet-icon--yellow { background: #f0cc1b; }
+
+.pwb-fleet-card-title {
+    font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    font-weight: 700;
+    font-size: clamp(22px, 1.9vw, 36px);
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.pwb-fleet-card-title--blue   { color: #1553b5; }
+.pwb-fleet-card-title--red    { color: #cc2724; }
+.pwb-fleet-card-title--yellow { color: #f0cc1b; }
+
+.pwb-fleet-card-text {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(14px, 1.25vw, 24px);
+    line-height: 1.38;
+    color: #111827;
+    text-align: center;
+    margin: 0;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1100px) {
+    .pwb-fleet { padding: 80px 0; }
+
+    .pwb-fleet-inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .pwb-fleet-photo img {
+        height: auto;
+        aspect-ratio: 3 / 2;
+    }
+}
+
+@media (max-width: 700px) {
+    .pwb-fleet { padding: 56px 0; }
+
+    .pwb-fleet-cards {
+        grid-template-columns: 1fr;
+    }
+}

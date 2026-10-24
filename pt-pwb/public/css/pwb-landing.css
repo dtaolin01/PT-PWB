@@ -1,0 +1,129 @@
+/* ===== HERO ===== */
+main { margin: 0; padding: 0; }
+.pwb-hero { margin: 0; }
+.pwb-hero {
+    position: relative;
+    display: block;
+    margin: 0;
+    overflow: hidden;
+    background-color: #1553b5;
+    color: #fff;
+}
+
+/* Foto menentukan tinggi hero */
+.pwb-hero-bg {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 620px;               /* batas minimum agar teks tetap muat di layar kecil */
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Teks diletakkan di atas foto */
+.pwb-hero-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    max-width: 1400px;
+    padding: 0 clamp(24px, 7.8vw, 150px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* ===== BREADCRUMB ===== */
+.pwb-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(14px, 1.05vw, 20px);
+    margin-bottom: 18px;
+}
+
+.pwb-breadcrumb-line {
+    width: 117px;
+    max-width: 14vw;
+    height: 3px;
+    background: #d32a26;
+}
+
+.pwb-breadcrumb-slash {
+    color: #d32a26;
+    margin: 0 12px;
+}
+
+/* ===== JUDUL ===== */
+.pwb-hero-title {
+    font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    font-weight: 700;
+    font-size: clamp(44px, 4.6vw, 88px);
+    line-height: .95;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    margin: 0 0 24px;
+}
+
+.pwb-hero-title span { display: block; }
+.pwb-hero-title .line-white  { color: #ffffff; }
+.pwb-hero-title .line-yellow { color: #f6c915; }
+
+/* ===== PARAGRAF ===== */
+.pwb-hero-text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: clamp(16px, 1.4vw, 26px);
+    line-height: 1.55;
+    max-width: 640px;
+    margin: 0 0 40px;
+}
+
+/* ===== TOMBOL ===== */
+.pwb-hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.pwb-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(15px, 1.2vw, 22px);
+    text-decoration: none;
+    color: #fff;
+    transition: transform .15s ease, background-color .2s ease, opacity .2s ease;
+}
+
+.pwb-btn-red {
+    background: #d32a26;
+    padding: 18px 42px;
+    border-radius: 6px;
+}
+
+.pwb-btn-red:hover {
+    background: #b9211e;
+    transform: translateY(-2px);
+}
+
+.pwb-btn-text:hover {
+    opacity: .85;
+}
+
+.pwb-arrow {
+    width: 1.3em;
+    height: 1.3em;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+    .pwb-hero-bg { min-height: 680px; }
+    .pwb-hero-content { padding: 0 24px; }
+    }
+

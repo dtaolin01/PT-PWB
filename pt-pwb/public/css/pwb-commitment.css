@@ -1,0 +1,104 @@
+/* ===== SECTION KOMITMEN ===== */
+.pwb-commit {
+    position: relative;
+    overflow: hidden;
+    background-color: #1553b5;               /* hanya terlihat jika foto gagal dimuat */
+    padding: clamp(36px, 2.9vw, 56px) 0 clamp(40px, 3.6vw, 70px);
+    color: #ffffff;
+}
+
+/* Foto selalu memenuhi seluruh section */
+.pwb-commit-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    z-index: 0;
+}
+
+/* Lapisan biru polos di atas foto (tanpa gradient) */
+
+.pwb-commit-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 0 clamp(24px, 7.8vw, 150px);
+}
+
+.pwb-commit-label {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(14px, 1.05vw, 20px);
+    margin-bottom: 14px;
+}
+
+.pwb-commit-line {
+    width: 117px;
+    max-width: 14vw;
+    height: 3px;
+    background: #d32a26;
+}
+
+.pwb-commit-title {
+    font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    font-weight: 700;
+    font-size: clamp(32px, 3.4vw, 65px);
+    line-height: 1;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin: 0 0 clamp(24px, 2.6vw, 50px);
+}
+
+.pwb-commit-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(20px, 2vw, 40px);
+}
+
+.pwb-commit-item {
+    display: flex;
+    align-items: center;
+    gap: clamp(14px, 1.4vw, 26px);
+}
+
+.pwb-commit-icon {
+    flex: 0 0 clamp(56px, 5vw, 96px);
+    width: clamp(56px, 5vw, 96px);
+    height: clamp(56px, 5vw, 96px);
+    border-radius: 50%;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pwb-commit-icon img {
+    width: 56%;
+    height: 56%;
+    object-fit: contain;
+    display: block;
+}
+
+.pwb-commit-text {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(14px, 1.25vw, 24px);
+    line-height: 1.38;
+    text-align: center;
+    margin: 0;
+}
+
+@media (max-width: 1100px) {
+    .pwb-commit-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+    .pwb-commit-grid { grid-template-columns: 1fr; }
+}

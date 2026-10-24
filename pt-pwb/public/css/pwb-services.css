@@ -1,0 +1,139 @@
+/* ===== SECTION LAYANAN KAMI ===== */
+.pwb-services {
+    background: #f3f6fa;
+    padding: 110px 0;
+    scroll-margin-top: 96px;
+}
+
+.pwb-services-inner {
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 0 clamp(24px, 7.8vw, 150px);
+}
+
+/* Label (garis merah + teks) memakai .pwb-label dari pwb-about.css */
+
+/* ----- Header: judul + link ----- */
+.pwb-services-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 36px;
+}
+
+.pwb-services-title {
+    font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    font-weight: 700;
+    font-size: clamp(32px, 3.4vw, 65px);
+    line-height: 1;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: #1453ae;
+    margin: 0;
+}
+
+.pwb-services-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(15px, 1.25vw, 24px);
+    color: #0b3a82;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: opacity .2s ease, gap .2s ease;
+}
+
+.pwb-services-link:hover {
+    opacity: .8;
+    gap: 14px;
+}
+
+.pwb-services .pwb-arrow {
+    width: 1.3em;
+    height: 1.3em;
+}
+
+/* ----- Kartu ----- */
+.pwb-services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(16px, 1.2vw, 24px);
+}
+
+.pwb-service-card {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: clamp(24px, 1.8vw, 34px) clamp(20px, 1.8vw, 34px) clamp(36px, 3.4vw, 64px);
+    text-align: center;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.pwb-service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(21, 83, 181, .12);
+}
+
+.pwb-service-icon {
+    width: clamp(64px, 5.5vw, 106px);
+    height: clamp(64px, 5.5vw, 106px);
+    margin: 0 auto clamp(20px, 2vw, 38px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.pwb-service-icon--blue { background: #1453ae; }
+.pwb-service-icon--red  { background: #cc2724; }
+
+.pwb-service-icon img,
+.pwb-service-icon svg {
+    width: 55%;
+    height: 55%;
+    object-fit: contain;
+    color: #ffffff;
+}
+
+.pwb-service-title {
+    font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    font-weight: 700;
+    font-size: clamp(26px, 2.3vw, 44px);
+    line-height: 1;
+    text-transform: uppercase;
+    color: #06326E;
+    margin: 0 0 clamp(16px, 1.6vw, 30px);
+}
+
+.pwb-service-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(14px, 1.25vw, 24px);
+    line-height: 1.38;
+    color: #000;
+    margin: 0;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1100px) {
+    .pwb-services { padding: 80px 0; }
+
+    .pwb-services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    .pwb-services { padding: 56px 0; }
+
+    .pwb-services-head {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+    }
+
+    .pwb-services-grid {
+        grid-template-columns: 1fr;
+    }
+}

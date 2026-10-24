@@ -1,0 +1,171 @@
+:root {
+    --pwb-blue: #1453ae;
+    --pwb-gray: #414D5E;
+    --pwb-bg: #f3f6fa;
+    --pwb-nav-height: 80px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    background: #ffffff;
+}
+
+.pwb-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: var(--pwb-bg);
+    height: var(--pwb-nav-height);
+    padding: 0 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.pwb-brand {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-decoration: none;
+}
+
+.pwb-logo {
+    height: 55px;
+    width: auto;
+    display: block;
+}
+
+.pwb-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+    gap: 0;
+}
+
+.pwb-title {
+    font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    font-weight: bolder;
+    font-size: 22px;
+    line-height: 1;
+    letter-spacing: 0;
+    word-spacing: 0;
+    text-transform: uppercase;
+    color: var(--pwb-blue);
+}
+
+.pwb-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 1.1;
+    letter-spacing: 0;
+    color: var(--pwb-gray);
+    margin-top: 1px;
+}
+
+.pwb-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 28px;
+}
+
+.pwb-menu a {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--pwb-gray);
+    text-decoration: none;
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
+    transition: color .2s, border-color .2s;
+}
+
+.pwb-menu a:hover,
+.pwb-menu a.active {
+    color: var(--pwb-blue);
+    border-bottom-color: var(--pwb-blue);
+}
+
+.pwb-toggle { display: none; }
+
+.pwb-burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.pwb-burger span {
+    width: 24px;
+    height: 3px;
+    background: var(--pwb-blue);
+    border-radius: 2px;
+}
+
+@media (max-width: 992px) {
+    :root { --pwb-nav-height: 68px; }
+
+    .pwb-navbar { padding: 0 20px; }
+    .pwb-brand { gap: 12px; }
+    .pwb-logo { height: 40px; }
+    .pwb-title { font-size: 18px; }
+    .pwb-subtitle { font-size: 12px; }
+
+    .pwb-burger { display: flex; }
+
+    .pwb-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--pwb-bg);
+        flex-direction: column;
+        gap: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height .3s ease;
+    }
+
+    .pwb-menu li a {
+        display: block;
+        padding: 14px 20px;
+        border-bottom: none;
+    }
+
+    .pwb-toggle:checked ~ .pwb-menu { max-height: 300px; }
+
+    /* ===== Navbar mode landing: tersembunyi sampai di-scroll ===== */
+    .pwb-navbar.pwb-navbar--landing {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        transform: translateY(-100%);
+        visibility: hidden;
+        box-shadow: none;
+        transition: transform .35s ease, visibility .35s ease, box-shadow .35s ease;
+    }
+
+    .pwb-navbar.pwb-navbar--landing.is-scrolled {
+        transform: translateY(0);
+        visibility: visible;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, .08);
+    }
+}
+/* ===== Scroll halus ke section ===== */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Agar judul section tidak tertutup navbar yang menempel di atas */
+section[id] {
+    scroll-margin-top: var(--pwb-nav-height);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+}
