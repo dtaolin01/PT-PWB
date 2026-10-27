@@ -21,8 +21,9 @@
 <main>
     @yield('content')
 </main>
+
 @include('partials.footer')
-<script src="{{ asset('js/pwb-navbar.js') }}" defer></script>
-@stack('scripts')
+
+<script src="{{ asset('js/pwb-navbar.js') }}?v={{ filemtime(public_path('js/pwb-navbar.js')) }}" defer></script>
 </body>
 </html>

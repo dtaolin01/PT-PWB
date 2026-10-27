@@ -1,0 +1,26 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up(): void
+    {
+        Schema::create('shipment_steps', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('shipment_id')->constrained()->cascadeOnDelete();
+            $table->string('label', 100);
+            $table->date('step_date')->nullable();
+            $table->boolean('done')->default(false);                     // 1 = sudah terlewati
+            $table->unsignedSmallInteger('sort_order')->default(0);
+            $table->timestamps();
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::dropIfExists('shipment_steps');
+    }
+};

@@ -8,4 +8,9 @@ class PageController extends Controller
     {
         return view('home');
     }
+
+    public function contact()
+    {
+        return view('contact');
+    }
 }

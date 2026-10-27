@@ -1,0 +1,547 @@
+/* ===== HALAMAN TRACKING (prefix pwb-trk) ===== */
+
+/* ----- Banner ----- */
+.pwb-trk-hero {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1920 / 732;
+    min-height: 420px;
+    overflow: hidden;
+    background-color: #1553b5;
+    color: #ffffff;
+}
+
+.pwb-trk-hero-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.pwb-trk-hero-content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 0 clamp(24px, 7.8vw, 150px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.pwb-trk-tag {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(13px, 1.05vw, 20px);
+    margin-bottom: 12px;
+}
+
+.pwb-trk-tag-line {
+    display: block;
+    width: clamp(60px, 6vw, 117px);
+    height: 3px;
+    background: #d32a26;
+}
+
+.pwb-trk-hero-title {
+    font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    font-weight: 700;
+    font-size: clamp(38px, 4.3vw, 82px);
+    line-height: .95;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin: 0 0 18px;
+}
+
+.pwb-trk-hero-title span {
+    display: block;
+}
+
+.pwb-trk-hero-text {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(14px, 1.45vw, 26px);
+    line-height: 1.5;
+    max-width: 21.5em;
+    margin: 0;
+}
+
+/* ----- Area form + hasil ----- */
+.pwb-trk {
+    background: #f2f6fb;
+    padding: clamp(32px, 4.5vw, 86px) 0 clamp(48px, 5vw, 96px);
+    min-height: 40vh;
+}
+
+.pwb-trk-inner {
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 0 clamp(24px, 7.6vw, 150px);
+}
+
+/* Form */
+.pwb-trk-search {
+    display: flex;
+    gap: clamp(12px, 1.5vw, 28px);
+}
+
+.pwb-trk-field {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: clamp(12px, 2vw, 40px);
+    height: clamp(52px, 4.95vw, 84px);
+    padding: 0 clamp(16px, 1.9vw, 36px);
+    background: #ffffff;
+    border: 1.5px solid #06316b;
+    border-radius: clamp(14px, 1.5vw, 24px);
+    color: #06316b;
+    cursor: text;
+}
+
+.pwb-trk-field:focus-within {
+    box-shadow: 0 0 0 3px rgba(21, 83, 181, .2);
+}
+
+.pwb-trk-field svg {
+    flex: 0 0 auto;
+    width: clamp(22px, 2.5vw, 40px);
+    height: clamp(22px, 2.5vw, 40px);
+}
+
+.pwb-trk-field input {
+    flex: 1;
+    min-width: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(14px, 1.25vw, 22px);
+    color: #06316b;
+}
+
+.pwb-trk-field input::placeholder {
+    color: #06316b;
+    opacity: .85;
+}
+
+.pwb-trk-btn {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-width: clamp(110px, 16.8vw, 280px);
+    height: clamp(52px, 4.95vw, 84px);
+    padding: 0 clamp(18px, 2vw, 36px);
+    background: #06316b;
+    color: #ffffff;
+    border: 0;
+    border-radius: clamp(14px, 1.5vw, 24px);
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(14px, 1.25vw, 22px);
+    cursor: pointer;
+    transition: background-color .2s ease, transform .15s ease;
+}
+
+.pwb-trk-btn:hover {
+    background: #0a4290;
+    transform: translateY(-2px);
+}
+
+.pwb-trk-btn svg {
+    width: 1.3em;
+    height: 1.3em;
+}
+
+.pwb-trk-error {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(14px, 1.2vw, 20px);
+    color: #b42318;
+    margin: 18px 4px 0;
+}
+
+/* ----- Kartu hasil ----- */
+.pwb-trk-card {
+    margin-top: clamp(24px, 3.4vw, 64px);
+    background: #ffffff;
+    border: 1.5px solid #06316b;
+    border-radius: clamp(8px, .8vw, 14px);
+    padding: clamp(20px, 2.1vw, 40px) clamp(18px, 2.4vw, 44px) clamp(24px, 2.4vw, 44px);
+}
+
+/* Header kartu */
+.pwb-trk-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px 24px;
+    padding-bottom: clamp(16px, 1.6vw, 30px);
+    border-bottom: 1px solid #b9bec5;
+}
+
+.pwb-trk-resi-label {
+    display: block;
+    font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    font-weight: 700;
+    font-size: clamp(15px, 1.5vw, 26px);
+    color: #06316b;
+}
+
+.pwb-trk-resi {
+    font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    font-weight: 700;
+    font-size: clamp(30px, 3.15vw, 60px);
+    line-height: 1;
+    color: #06316b;
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+
+.pwb-trk-head-right {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px clamp(16px, 2.2vw, 40px);
+}
+
+.pwb-trk-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(10px, 1.1vw, 20px) clamp(18px, 2.4vw, 44px);
+    border-radius: 999px;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(13px, 1.25vw, 22px);
+    color: #ffffff;
+    background: #0fa81a;
+    white-space: nowrap;
+}
+
+.pwb-trk-badge--green  { background: #0fa81a; }
+.pwb-trk-badge--blue   { background: #1553b5; }
+.pwb-trk-badge--yellow { background: #f0cc1b; color: #1f2937; }
+.pwb-trk-badge--red    { background: #cc2724; }
+.pwb-trk-badge--gray   { background: #6b7280; }
+
+.pwb-trk-eta {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+    color: #06316b;
+}
+
+.pwb-trk-eta-label {
+    font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    font-size: clamp(15px, 1.5vw, 26px);
+}
+
+.pwb-trk-eta-date {
+    font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    font-weight: 700;
+    font-size: clamp(16px, 1.65vw, 30px);
+    text-transform: uppercase;
+}
+
+.pwb-trk-eta-note {
+    font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    font-size: clamp(12px, 1.1vw, 20px);
+}
+
+/* ----- Status bertahap ----- */
+.pwb-trk-steps {
+    --node: clamp(44px, 5.2vw, 80px);
+    --line: clamp(6px, .82vw, 14px);
+    list-style: none;
+    margin: clamp(24px, 2.8vw, 52px) 0 0;
+    padding: 0;
+    display: flex;
+    align-items: flex-start;
+}
+
+.pwb-trk-step {
+    position: relative;
+    flex: 1 1 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.pwb-trk-step:last-child {
+    flex: 0 0 auto;
+}
+
+/* Garis penghubung ke status berikutnya */
+.pwb-trk-step::after {
+    content: "";
+    position: absolute;
+    top: calc(var(--node) / 2 - var(--line) / 2);
+    left: calc(var(--node) / 2);
+    width: 100%;
+    height: var(--line);
+    background: #424d5c;
+    z-index: 0;
+}
+
+.pwb-trk-step:last-child::after {
+    display: none;
+}
+
+.pwb-trk-step.is-linked::after {
+    background: #06316b;
+}
+
+.pwb-trk-node {
+    position: relative;
+    z-index: 1;
+    box-sizing: border-box;
+    width: var(--node);
+    height: var(--node);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #d5dee7;
+    border: clamp(4px, .55vw, 8px) solid #424d5c;
+    color: #ffffff;
+}
+
+.pwb-trk-node svg {
+    display: none;
+    width: 58%;
+    height: 58%;
+}
+
+.pwb-trk-step.is-done .pwb-trk-node {
+    background: #06316b;
+    border-color: #06316b;
+}
+
+.pwb-trk-step.is-done .pwb-trk-node svg {
+    display: block;
+}
+
+.pwb-trk-step-text {
+    margin-top: clamp(8px, .9vw, 16px);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.pwb-trk-step-label {
+    font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    font-weight: 700;
+    font-size: clamp(15px, 1.5vw, 26px);
+    color: #1553b5;
+}
+
+.pwb-trk-step.is-done .pwb-trk-step-label {
+    color: #06316b;
+}
+
+.pwb-trk-step-date {
+    font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    font-size: clamp(15px, 1.65vw, 28px);
+    color: #06316b;
+}
+
+/* ----- Judul bagian ----- */
+.pwb-trk-section-title {
+    font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    font-weight: 700;
+    font-size: clamp(17px, 1.65vw, 30px);
+    text-transform: uppercase;
+    color: #06316b;
+    margin: clamp(28px, 3.2vw, 60px) 0 clamp(10px, 1vw, 18px);
+}
+
+.pwb-trk-section-title--map {
+    margin-top: clamp(24px, 3vw, 56px);
+}
+
+/* ----- Detail pengiriman ----- */
+.pwb-trk-detail-grid {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+}
+
+.pwb-trk-detail-col {
+    padding: 0 clamp(14px, 2.4vw, 44px);
+    border-left: 1px solid #b9bec5;
+}
+
+.pwb-trk-detail-col:first-child {
+    padding-left: 0;
+    border-left: 0;
+}
+
+.pwb-trk-detail-row {
+    display: grid;
+    grid-template-columns: minmax(80px, 40%) 1fr;
+    gap: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(13px, 1.25vw, 22px);
+    line-height: 1.45;
+    color: #4a5568;
+}
+
+.pwb-trk-detail-label::after {
+    content: " :";
+}
+
+/* ----- Peta ----- */
+.pwb-trk-map {
+    position: relative;
+    isolation: isolate;                 /* agar peta tidak menutupi navbar saat scroll */
+    height: clamp(280px, 25.6vw, 520px);
+    border-radius: clamp(10px, 1.1vw, 18px);
+    overflow: hidden;
+    background: #d6eaf8;
+}
+
+.pwb-trk-marker-wrap {
+    background: none;
+    border: 0;
+}
+
+.pwb-trk-marker {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    border: 3px solid #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .35);
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.pwb-trk-marker--origin      { background: #1553b5; }
+.pwb-trk-marker--destination { background: #cc2724; }
+.pwb-trk-marker--stop        { background: #f0cc1b; color: #1f2937; }
+.pwb-trk-marker--truck       { background: #06316b; font-size: 20px; }
+
+.pwb-trk-marker img {
+    width: 68%;
+    height: 68%;
+    object-fit: contain;
+}
+
+/* ----- Kotak informasi ----- */
+.pwb-trk-info {
+    margin-top: clamp(14px, 1.8vw, 30px);
+    display: flex;
+    align-items: center;
+    gap: clamp(14px, 1.9vw, 36px);
+    padding: clamp(14px, 1.6vw, 30px) clamp(16px, 2.1vw, 40px);
+    background: #d5dee7;
+    border-radius: 10px;
+}
+
+.pwb-trk-info-icon {
+    flex: 0 0 clamp(34px, 3.4vw, 58px);
+    width: clamp(34px, 3.4vw, 58px);
+    color: #06316b;
+}
+
+.pwb-trk-info-icon svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.pwb-trk-info-title {
+    font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    font-weight: 700;
+    font-size: clamp(16px, 1.65vw, 28px);
+    color: #06316b;
+    margin: 0;
+}
+
+.pwb-trk-info-text {
+    font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    font-size: clamp(14px, 1.5vw, 26px);
+    line-height: 1.2;
+    color: #06316b;
+    margin: 0;
+}
+
+.pwb-trk-info-text a {
+    color: inherit;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 800px) {
+    .pwb-trk-detail-grid {
+        grid-auto-flow: row;
+        grid-auto-columns: auto;
+        gap: 18px;
+    }
+
+    .pwb-trk-detail-col,
+    .pwb-trk-detail-col:first-child {
+        padding: 18px 0 0;
+        border-left: 0;
+        border-top: 1px solid #b9bec5;
+    }
+
+    .pwb-trk-detail-col:first-child {
+        padding-top: 0;
+        border-top: 0;
+    }
+}
+
+@media (max-width: 700px) {
+    .pwb-trk-search {
+        flex-direction: column;
+    }
+
+    .pwb-trk-btn {
+        width: 100%;
+    }
+
+    /* Status bertahap jadi vertikal */
+    .pwb-trk-steps {
+        flex-direction: column;
+    }
+
+    .pwb-trk-step,
+    .pwb-trk-step:last-child {
+        flex: 0 0 auto;
+        flex-direction: row;
+        align-items: center;
+        gap: 16px;
+        padding-bottom: 28px;
+    }
+
+    .pwb-trk-step:last-child {
+        padding-bottom: 0;
+    }
+
+    .pwb-trk-step::after {
+        top: calc(var(--node) / 2);
+        left: calc(var(--node) / 2 - var(--line) / 2);
+        width: var(--line);
+        height: 100%;
+    }
+
+    .pwb-trk-step-text {
+        margin-top: 0;
+    }
+}

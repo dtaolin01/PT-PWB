@@ -1,33 +1,32 @@
-/* ===== HERO ===== */
-main { margin: 0; padding: 0; }
-.pwb-hero { margin: 0; }
-.pwb-hero {
+/* ===== BANNER (HERO) ===== */
+.pwb-banner {
     position: relative;
-    display: block;
+    width: 100%;
     margin: 0;
+    aspect-ratio: 1920 / 732;         /* tinggi mengikuti rasio foto */
+    min-height: 640px;                /* batas minimum agar teks tetap muat */
     overflow: hidden;
-    background-color: #1553b5;
-    color: #fff;
+    background-color: #1553b5;        /* hanya terlihat jika foto gagal dimuat */
+    color: #ffffff;
 }
 
-/* Foto menentukan tinggi hero */
-.pwb-hero-bg {
-    display: block;
+.pwb-banner-img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: auto;
-    min-height: 620px;               /* batas minimum agar teks tetap muat di layar kecil */
+    height: 100%;
     object-fit: cover;
     object-position: center;
+    display: block;
 }
 
-/* Teks diletakkan di atas foto */
-.pwb-hero-content {
+.pwb-banner-content {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 1;
     max-width: 1400px;
     padding: 0 clamp(24px, 7.8vw, 150px);
     display: flex;
@@ -97,7 +96,7 @@ main { margin: 0; padding: 0; }
     font-family: 'Inter', sans-serif;
     font-size: clamp(15px, 1.2vw, 22px);
     text-decoration: none;
-    color: #fff;
+    color: #ffffff;
     transition: transform .15s ease, background-color .2s ease, opacity .2s ease;
 }
 
@@ -123,7 +122,19 @@ main { margin: 0; padding: 0; }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 992px) {
-    .pwb-hero-bg { min-height: 680px; }
-    .pwb-hero-content { padding: 0 24px; }
+    .pwb-banner {
+        min-height: 680px;
     }
 
+    .pwb-banner-content {
+        padding: 0 24px;
+    }
+
+    .pwb-hero-actions {
+        gap: 24px;
+    }
+
+    .pwb-btn-red {
+        padding: 14px 28px;
+    }
+}

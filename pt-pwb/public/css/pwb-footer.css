@@ -1,109 +1,4 @@
-/* ===== FOOTER: HUBUNGI KAMI ===== */
-.pwb-contact {
-    background: #ffffff;
-    padding: clamp(40px, 3.2vw, 60px) 0;
-    scroll-margin-top: 96px;
-}
-
-.pwb-contact-inner {
-    max-width: 1920px;
-    margin: 0 auto;
-    padding: 0 clamp(24px, 7.8vw, 150px);
-    display: grid;
-    grid-template-columns: minmax(0, 456fr) minmax(0, 590fr) minmax(0, 520fr);
-    gap: clamp(24px, 2.4vw, 46px);
-    align-items: stretch;
-}
-
-/* Foto */
-.pwb-contact-photo img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    min-height: 320px;
-    object-fit: cover;
-}
-
-/* Teks */
-.pwb-footer-label {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    font-family: 'Inter', sans-serif;
-    font-size: clamp(14px, 1.05vw, 20px);
-    color: #1453ae;
-    margin-bottom: 12px;
-}
-
-.pwb-footer-line {
-    width: 117px;
-    max-width: 14vw;
-    height: 3px;
-    background: #d32a26;
-}
-
-.pwb-contact-title {
-    font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
-    font-weight: 700;
-    font-size: clamp(32px, 3.4vw, 65px);
-    line-height: .92;
-    letter-spacing: 0;
-    text-transform: uppercase;
-    color: #1453ae;
-    margin: 0 0 14px;
-}
-
-.pwb-contact-desc {
-    font-family: 'Inter', sans-serif;
-    font-size: clamp(15px, 1.46vw, 28px);
-    line-height: 1.46;
-    color: #4a5568;
-    margin: 0;
-}
-
-/* Daftar kontak */
-.pwb-contact-list {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    gap: 24px;
-}
-
-.pwb-contact-item {
-    display: flex;
-    align-items: center;
-    gap: clamp(14px, 1.4vw, 26px);
-    text-decoration: none;
-    color: #06326E;
-    transition: opacity .2s ease;
-}
-
-.pwb-contact-item:hover { opacity: .8; }
-
-.pwb-contact-icon {
-    flex: 0 0 clamp(48px, 4.1vw, 79px);
-    width: clamp(70px, 4.1vw, 79px);
-    height: clamp(70px, 4.1vw, 79px);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.pwb-contact-icon img {
-    width: 175%;
-    height: 175%;
-    object-fit: contain;
-    display: block;
-}
-
-.pwb-contact-label {
-    font-family: 'Inter', sans-serif;
-    font-size: clamp(14px, 1.25vw, 24px);
-    line-height: 1.38;
-}
-
-/* ===== FOOTER: BAR NAVY ===== */
+/* ===== FOOTER: BAR BIRU ===== */
 .pwb-footer-bar {
     background: #06326E;
     padding: clamp(24px, 2.2vw, 40px) 48px;
@@ -120,7 +15,7 @@
     height: clamp(44px, 3.8vw, 64px);
     width: auto;
     display: block;
-    filter: brightness(0) invert(1);        /* logo jadi putih */
+    filter: brightness(0) invert(1);
 }
 
 .pwb-footer-brand-text {
@@ -146,26 +41,30 @@
     margin-top: 2px;
 }
 
-/* ===== RESPONSIVE ===== */
-@media (max-width: 1100px) {
-    .pwb-contact-inner {
-        grid-template-columns: 1fr;
-        gap: 32px;
-    }
-
-    .pwb-contact-photo img {
-        height: auto;
-        aspect-ratio: 3 / 2;
-    }
-
-    .pwb-contact-list {
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 28px 40px;
-    }
+@media (max-width: 700px) {
+    .pwb-footer-bar { padding: 24px 20px; }
+}
+/* ===== Footer selalu menempel di dasar layar ===== */
+html {
+    min-height: 100%;
 }
 
-@media (max-width: 700px) {
-    .pwb-contact-list { flex-direction: column; }
-    .pwb-footer-bar { padding: 24px 20px; }
+body {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+}
+
+body > nav {
+    flex: 0 0 auto;
+}
+
+body > main {
+    flex: 1 0 auto;      /* isi halaman mengambil sisa ruang */
+}
+
+body > footer {
+    flex: 0 0 auto;
+    margin-top: auto;    /* footer terdorong ke dasar layar */
 }

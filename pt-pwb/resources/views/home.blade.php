@@ -8,12 +8,15 @@
 <link rel="stylesheet" href="{{ asset('css/pwb-services.css') }}?v={{ filemtime(public_path('css/pwb-services.css')) }}">
 <link rel="stylesheet" href="{{ asset('css/pwb-fleet.css') }}?v={{ filemtime(public_path('css/pwb-fleet.css')) }}">
 <link rel="stylesheet" href="{{ asset('css/pwb-commitment.css') }}?v={{ filemtime(public_path('css/pwb-commitment.css')) }}">
+<link rel="stylesheet" href="{{ asset('css/pwb-hubungi.css') }}?v={{ filemtime(public_path('css/pwb-hubungi.css')) }}">
+
 @endpush
 
 @section('content')
-<section class="pwb-hero">
-    <img src="{{ asset('images/hero-bg.jpg') }}" alt="" class="pwb-hero-bg">
-    <div class="pwb-hero-content">
+<section class="pwb-banner">
+    <img src="{{ asset('images/hero-bg.jpg') }}" alt="" class="pwb-banner-img">
+
+    <div class="pwb-banner-content">
 
         <div class="pwb-breadcrumb">
             <span class="pwb-breadcrumb-line"></span>
@@ -32,7 +35,7 @@
         </p>
 
         <div class="pwb-hero-actions">
-            <a href="#" class="pwb-btn pwb-btn-red">
+            <a href="{{ route('contact') }}" class="pwb-btn pwb-btn-red">
                 Hubungi Kami
                 <svg class="pwb-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M15 6l6 6-6 6"/></svg>
             </a>
@@ -49,4 +52,5 @@
 @include('sections.services')
 @include('sections.fleet')
 @include('sections.commitment')
+@include('sections.hubungi-kami')
 @endsection
