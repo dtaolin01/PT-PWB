@@ -64,7 +64,7 @@
                 </form>
 
                 <h4 class="pwb-footer-heading pwb-footer-heading--office">Office Location</h4>
-                <p class="pwb-footer-address">Jl. Raya Simpang Pasir Rt 29 Samarinda</p>
+                <p class="pwb-footer-address">Jl. Raya Simpang Pasir RT 29 Samarinda</p>
             </div>
 
         </div>
