@@ -70,8 +70,14 @@ document.addEventListener('DOMContentLoaded', function () {
         routePoints.push(point);
     });
 
-    // Garis putus-putus antar pin (garis lurus, bukan rute jalan)
-    if (routePoints.length > 1) {
+    // Garis rute: mengikuti jalan jika tersedia, jika tidak garis lurus putus-putus
+    var hasRoadRoute = Array.isArray(data.route) && data.route.length > 1;
+
+    if (hasRoadRoute) {
+        // Garis putih di bawah sebagai tepi, supaya rute terlihat jelas di atas peta
+        L.polyline(data.route, { color: '#ffffff', weight: 9, opacity: 0.9, lineJoin: 'round' }).addTo(map);
+        L.polyline(data.route, { color: '#1553b5', weight: 5, opacity: 0.95, lineJoin: 'round' }).addTo(map);
+    } else if (routePoints.length > 1) {
         L.polyline(routePoints, {
             color: '#1553b5',
             weight: 3,
@@ -96,10 +102,16 @@ document.addEventListener('DOMContentLoaded', function () {
         bounds.push(point);
     });
 
-    if (bounds.length > 1) {
-        map.fitBounds(L.latLngBounds(bounds), { padding: [50, 50], maxZoom: 15 });
-    } else if (bounds.length === 1) {
-        map.setView(bounds[0], 13);
+    // Sesuaikan tampilan peta agar semua titik dan rute terlihat
+    var fitPoints = bounds.slice();
+    if (hasRoadRoute) {
+        fitPoints = fitPoints.concat(data.route);
+    }
+
+    if (fitPoints.length > 1) {
+        map.fitBounds(L.latLngBounds(fitPoints), { padding: [50, 50], maxZoom: 15 });
+    } else if (fitPoints.length === 1) {
+        map.setView(fitPoints[0], 13);
     } else {
         map.setView([-2.5, 118], 5);
     }

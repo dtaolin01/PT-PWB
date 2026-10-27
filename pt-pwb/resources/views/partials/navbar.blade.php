@@ -15,7 +15,7 @@
     <ul class="pwb-menu">
         <li><a href="{{ route('home') }}#top" data-section="top" class="{{ request()->routeIs('home') ? 'active' : '' }}">Home</a></li>
         <li><a href="{{ route('home') }}#tentang" data-section="tentang">About</a></li>
-        <li><a href="{{ route('home') }}#layanan" data-section="layanan">Services</a></li>
+        <li><a href="{{ route('services') }}"class="{{ request()->routeIs('services') ? 'active' : '' }}">Services</a></li>
         <li><a href="{{ route('contact') }}" class="{{ request()->routeIs('contact') ? 'active' : '' }}">Contacts</a></li>
         <li><a href="{{ route('tracking') }}" class="{{ request()->routeIs('tracking') ? 'active' : '' }}">Tracking</a></li>
     </ul>

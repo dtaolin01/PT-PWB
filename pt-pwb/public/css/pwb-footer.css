@@ -1,9 +1,28 @@
-/* ===== FOOTER: BAR BIRU ===== */
-.pwb-footer-bar {
+/* ===== FOOTER ===== */
+.pwb-footer {
+    position: relative;
+    overflow: hidden;
     background: #06326E;
-    padding: clamp(24px, 2.2vw, 40px) 48px;
+    color: #D4DFE8;
+    font-family: 'Inter', sans-serif;
 }
 
+.pwb-footer-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 1456px;
+    margin: 0 auto;
+    padding: clamp(32px, 3.4vw, 56px) clamp(20px, 5vw, 73px) clamp(20px, 2vw, 32px);
+}
+
+.pwb-footer-grid {
+    display: grid;
+    grid-template-columns: 2.5fr 1fr 1.1fr 1.8fr;
+    column-gap: clamp(24px, 3vw, 48px);
+    align-items: start;
+}
+
+/* ----- Brand ----- */
 .pwb-footer-brand {
     display: inline-flex;
     align-items: center;
@@ -27,23 +46,168 @@
 .pwb-footer-brand-title {
     font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
     font-weight: 700;
-    font-size: clamp(22px, 1.9vw, 34px);
+    font-size: clamp(22px, 1.9vw, 30px);
     text-transform: uppercase;
     color: #D4DFE8;
 }
 
 .pwb-footer-brand-sub {
-    font-family: 'Inter', sans-serif;
-    font-weight: 300;
-    font-size: clamp(14px, 1.2vw, 22px);
+    font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    font-weight: 400;
+    font-size: clamp(18px, 1.5vw, 22px);
     line-height: 1.1;
     color: #D4DFE8;
     margin-top: 2px;
 }
 
-@media (max-width: 700px) {
-    .pwb-footer-bar { padding: 24px 20px; }
+.pwb-footer-desc {
+    margin: 20px 0 0;
+    max-width: 420px;
+    font-size: 16px;
+    line-height: 1.45;
+    color: #D4DFE8;
 }
+
+.pwb-footer-social {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    margin-top: 16px;
+}
+
+.pwb-footer-social a {
+    display: inline-flex;
+    color: #fff;
+    transition: opacity .2s;
+}
+.pwb-footer-social a:hover { opacity: .75; }
+
+.pwb-footer-social svg {
+    width: 40px;
+    height: 40px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* ----- Heading + list ----- */
+.pwb-footer-heading {
+    margin: 0 0 12px;
+    font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    font-weight: 700;
+    font-size: clamp(22px, 1.9vw, 28px);
+    line-height: 1.2;
+    text-transform: uppercase;
+    color: #D4DFE8;
+}
+
+.pwb-footer-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.pwb-footer-list li { margin: 0; }
+
+.pwb-footer-list a {
+    display: inline-block;
+    padding: 1px 0;
+    font-size: 16px;
+    line-height: 1.4;
+    color: #D4DFE8;
+    text-decoration: none;
+    transition: color .2s;
+}
+.pwb-footer-list a:hover { color: #fff; text-decoration: underline; }
+
+/* ----- Stay connected ----- */
+.pwb-footer-form {
+    display: flex;
+    gap: 8px;
+    max-width: 340px;
+}
+
+.pwb-footer-form input {
+    flex: 1 1 auto;
+    min-width: 0;
+    height: 40px;
+    padding: 0 14px;
+    border: 2px solid #D4DFE8;
+    border-radius: 8px;
+    background: #fff;
+    font-family: inherit;
+    font-size: 16px;
+    color: #06326E;
+    outline: none;
+}
+.pwb-footer-form input::placeholder { color: #06326E; opacity: 1; }
+.pwb-footer-form input:focus { border-color: #f2c012; }
+
+.pwb-footer-form button {
+    flex: 0 0 auto;
+    height: 40px;
+    padding: 0 24px;
+    border: 0;
+    border-radius: 8px;
+    background: #1a56b0;
+    color: #fff;
+    font-family: inherit;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background .2s;
+}
+.pwb-footer-form button:hover { background: #2268cc; }
+
+.pwb-footer-heading--office { margin-top: 18px; }
+
+.pwb-footer-address {
+    margin: 0;
+    max-width: 260px;
+    font-size: 16px;
+    line-height: 1.4;
+    color: #D4DFE8;
+}
+
+/* ----- Garis pemisah (berhenti sebelum strip warna) ----- */
+.pwb-footer-line {
+    height: 1px;
+    margin-top: 20px;
+    margin-right: clamp(0px, 8vw, 120px);
+    background: #D4DFE8;
+}
+
+/* ----- Strip warna pojok kanan bawah ----- */
+.pwb-footer-stripes {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    display: block;
+    width: clamp(110px, 11.7vw, 170px);
+    height: auto;           /* PNG sudah dipotong pas, rasio 596:786 */
+    pointer-events: none;
+    user-select: none;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1000px) {
+    .pwb-footer-grid {
+        grid-template-columns: 1fr 1fr;
+        row-gap: 32px;
+    }
+    .pwb-footer-col--brand { grid-column: 1 / -1; }
+    .pwb-footer-col--connect { grid-column: 1 / -1; }
+}
+
+@media (max-width: 600px) {
+    .pwb-footer-grid { grid-template-columns: 1fr; }
+    .pwb-footer-form { max-width: none; }
+    .pwb-footer-line { margin-right: 0; }
+    .pwb-footer-stripes { opacity: .35; }
+}
+
 /* ===== Footer selalu menempel di dasar layar ===== */
 html {
     min-height: 100%;

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Shipment;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Http;
 
 class TrackingController extends Controller
 {
@@ -90,7 +92,11 @@ class TrackingController extends Controller
             'eta_note'     => $etaNote,
             'steps'        => $steps,
             'details'      => $details,
-            'map'          => ['pins' => $pins, 'trucks' => $trucks],
+            'map'          => [
+                'pins'   => $pins,
+                'trucks' => $trucks,
+                'route'  => $this->buildRoute($pins),
+            ],
         ];
     }
 
@@ -116,5 +122,48 @@ class TrackingController extends Controller
         }
 
         return [$etaText, $etaNote];
+    }
+
+    /**
+     * Menghitung rute yang mengikuti jalan: titik muat -> titik singgah -> tujuan.
+     * Hasilnya disimpan di cache 30 hari. Mengembalikan null jika gagal
+     * (peta lalu memakai garis lurus sebagai cadangan).
+     */
+    private function buildRoute(array $pins): ?array
+    {
+        $order = ['origin' => 0, 'stop' => 1, 'destination' => 2];
+
+        $points = collect($pins)
+            ->sortBy(fn ($pin) => $order[$pin['type']] ?? 1)
+            ->values();
+
+        if ($points->count() < 2) {
+            return null;
+        }
+
+        // OSRM memakai urutan longitude,latitude
+        $coords = $points
+            ->map(fn ($pin) => number_format($pin['lng'], 6, '.', '') . ',' . number_format($pin['lat'], 6, '.', ''))
+            ->implode(';');
+
+        return Cache::remember('tracking_route_' . md5($coords), now()->addDays(30), function () use ($coords) {
+            try {
+                $response = Http::timeout(8)->get('https://router.project-osrm.org/route/v1/driving/' . $coords, [
+                    'overview'   => 'full',
+                    'geometries' => 'geojson',
+                ]);
+
+                if ($response->successful() && $response->json('code') === 'Ok') {
+                    // GeoJSON memakai [lng, lat], Leaflet memakai [lat, lng]
+                    return collect($response->json('routes.0.geometry.coordinates', []))
+                        ->map(fn ($c) => [round($c[1], 5), round($c[0], 5)])
+                        ->all();
+                }
+            } catch (\Throwable $e) {
+                // Gagal (offline atau server rute sibuk): peta memakai garis lurus
+            }
+
+            return null;
+        });
     }
 }
