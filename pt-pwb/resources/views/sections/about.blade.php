@@ -38,7 +38,7 @@
                 </div>
                 <div>
                     <h3 class="pwb-point-title">Visi</h3>
-                    <p class="pwb-point-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi porttitor urna id interdum finibus.</p>
+                    <p class="pwb-point-text">Menjadi perusahaan logistik dan distribusi semen yang terpercaya, unggul, dan menjadi mitra pilihan utama dalam mendukung pembangunan infrastruktur di Kalimantan dan Indonesia..</p>
                 </div>
             </div>
 
@@ -53,7 +53,7 @@
                 </div>
                 <div>
                     <h3 class="pwb-point-title">Misi</h3>
-                    <p class="pwb-point-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi porttitor urna id interdum finibus.</p>
+                    <p class="pwb-point-text">Menyediakan layanan pengiriman semen dan material konstruksi yang aman, tepat waktu, dan efisien, didukung armada yang terawat serta tim yang profesional..</p>
                 </div>
             </div>
 
@@ -65,7 +65,7 @@
                 </div>
                 <div>
                     <h3 class="pwb-point-title">Nilai Kami</h3>
-                    <p class="pwb-point-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi porttitor urna id interdum finibus.</p>
+                    <p class="pwb-point-text">Integritas, tanggung jawab, dan komitmen pada kepuasan pelanggan dalam setiap pengiriman yang kami lakukan..</p>
                 </div>
             </div>
 

@@ -1,8 +1,8 @@
 @php
 $fleet = [
-['title' => 'Lorem Ipsum', 'desc' => 'Lorem ipsum dolor sit amet, consectetur', 'color' => 'blue'],
-['title' => 'Lorem Ipsum', 'desc' => 'Lorem ipsum dolor sit amet, consectetur', 'color' => 'red'],
-['title' => 'Lorem Ipsum', 'desc' => 'Lorem ipsum dolor sit amet, consectetur', 'color' => 'yellow'],
+['title' => 'TRUK PS', 'desc' => 'Lincah untuk pengiriman volume kecil hingga menengah.', 'color' => 'blue'],
+['title' => 'TRUK 6 RODA', 'desc' => 'LSeimbang untuk kapasitas menengah dan akses jalan yang beragam.', 'color' => 'red'],
+['title' => 'TRONTON', 'desc' => 'Kapasitas besar untuk kebutuhan proyek skala besar.', 'color' => 'yellow'],
 ];
 @endphp
 
@@ -24,7 +24,7 @@ $fleet = [
             <h2 class="pwb-fleet-title">Armada Modern, Siap Melayani</h2>
 
             <p class="pwb-fleet-desc">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi porttitor urna id interdum finibus. Vivamus ultrices sodales sapien.
+                Armada kami dirawat secara berkala dan dioperasikan oleh pengemudi berpengalaman, sehingga setiap pengiriman semen dan material konstruksi sampai dengan aman dan tepat waktu.
             </p>
 
             <div class="pwb-fleet-cards">

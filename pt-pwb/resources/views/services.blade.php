@@ -23,7 +23,7 @@
         </h1>
 
         <p class="services-hero-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi porttitor urna id interdum finibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Kami mengoperasikan tiga jenis armada untuk mendukung distribusi semen dan material konstruksi. Setiap unit dirawat secara berkala demi keamanan dan ketepatan waktu pengiriman.
         </p>
 
         <div class="services-hero-actions">
@@ -44,26 +44,26 @@
 
         <article class="feature-card">
           <div class="feature-icon"><!-- <img src="icon-1.svg" alt=""> --></div>
-          <h3>Lorem Ipsum</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi porttitor urna id interdum finibus.</p>
+          <h3>LARMADA TERAWAT</h3>
+          <p>Setiap unit diperiksa dan dirawat berkala agar selalu siap beroperasi.</p>
         </article>
 
         <article class="feature-card">
           <div class="feature-icon"></div>
-          <h3>Lorem Ipsum</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi porttitor urna id interdum finibus.</p>
+          <h3>PENGIRIMAN TEPAT WAKTU</h3>
+          <p>Penjadwalan yang terencana agar material tiba sesuai kebutuhan di lokasi.</p>
         </article>
 
         <article class="feature-card">
           <div class="feature-icon"></div>
-          <h3>Lorem Ipsum</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi porttitor urna id interdum finibus.</p>
+          <h3>PENGEMUDI BERPENGALAMAN</h3>
+          <p>Dikemudikan oleh pengemudi terlatih yang memahami rute dan standar keselamatan.</p>
         </article>
 
         <article class="feature-card">
           <div class="feature-icon"></div>
-          <h3>Lorem Ipsum</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi porttitor urna id interdum finibus.</p>
+          <h3>KAPASITAS SESUAI KEBUTUHAN</h3>
+          <p>Pilih armada yang sesuai dengan volume pengiriman proyek Anda.</p>
         </article>
 
       </div>
@@ -78,31 +78,31 @@
 
         <article class="fleet-card">
           <div class="fleet-thumb"><!-- <img src="truk-1.jpg" alt="Nama truk"> --></div>
-          <h3>Truk Place Holder Name</h3>
+          <h3>TRUK PS</h3>
           <dl class="details">
-            <dt>Detail 1 :</dt><dd>Lorem Ipsum</dd>
-            <dt>Detail 2 :</dt><dd>Lorem Ipsum</dd>
-            <dt>Detail 3 :</dt><dd>Lorem Ipsum</dd>
+            <dt>Cocok untuk:</dt><dd> Pengiriman volume kecil hingga menengah</dd>
+            <dt>Kapasitas:</dt><dd> [± ... ton / ... sak semen]</dd>
+            <dt>Keunggulan:</dt><dd> Lincah dan mudah menjangkau akses jalan sempit</dd>
           </dl>
         </article>
 
         <article class="fleet-card">
           <div class="fleet-thumb"></div>
-          <h3>Truk Place Holder Name</h3>
+          <h3>TTRUK 6 RODA</h3>
           <dl class="details">
-            <dt>Detail 1 :</dt><dd>Lorem Ipsum</dd>
-            <dt>Detail 2 :</dt><dd>Lorem Ipsum</dd>
-            <dt>Detail 3 :</dt><dd>Lorem Ipsum</dd>
+            <dt>Cocok untuk:</dt><dd> Pengiriman volume menengah</dd>
+            <dt>Kapasitas:</dt><dd> [± ... ton / ... sak semen]</dd>
+            <dt>Keunggulan:</dt><dd> Seimbang antara kapasitas dan fleksibilitas</dd>
           </dl>
         </article>
 
         <article class="fleet-card">
           <div class="fleet-thumb"></div>
-          <h3>Truk Place Holder Name</h3>
+          <h3>TRONTON (TRUK 10 RODA)</h3>
           <dl class="details">
-            <dt>Detail 1 :</dt><dd>Lorem Ipsum</dd>
-            <dt>Detail 2 :</dt><dd>Lorem Ipsum</dd>
-            <dt>Detail 3 :</dt><dd>Lorem Ipsum</dd>
+            <dt>Cocok untuk:</dt><dd> Proyek besar dan pengiriman jarak jauh</dd>
+            <dt>Kapasitas: </dt><dd>[± ... ton / ... sak semen]</dd>
+            <dt>Keunggulan:</dt><dd> Muatan besar, biaya per ton lebih efisien</dd>
           </dl>
         </article>
 

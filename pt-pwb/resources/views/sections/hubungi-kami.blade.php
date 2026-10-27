@@ -22,7 +22,7 @@ $kontak = [
             <h2 class="pwb-hk-title">Siap Menjadi Mitra Logistik Anda</h2>
 
             <p class="pwb-hk-desc">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi porttitor urna id interdum finibus. Vivamus ultrices sodales sapien, eu iaculis lectus malesuada a. Morbi rutrum laoreet tempus. Nulla nec risus tortor. Nunc sit amet ultricies augue.
+                Butuh pasokan dan pengiriman semen untuk proyek Anda? Tim kami siap membantu menentukan armada dan jadwal pengiriman yang paling sesuai dengan kebutuhan Anda.
             </p>
         </div>
 

@@ -1,9 +1,9 @@
 @php
 $services = [
-['title' => 'Lorem Ipsum', 'desc' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi porttitor urna id interdum finibus.', 'color' => 'blue'],
-['title' => 'Lorem Ipsum', 'desc' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi porttitor urna id interdum finibus.', 'color' => 'red'],
-['title' => 'Lorem Ipsum', 'desc' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi porttitor urna id interdum finibus.', 'color' => 'blue'],
-['title' => 'Lorem Ipsum', 'desc' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi porttitor urna id interdum finibus.', 'color' => 'red'],
+['title' => 'DISTRIBUSI SEMEN CONCH', 'desc' => 'Sebagai distributor semen Conch, kami menyediakan pasokan semen untuk proyek maupun toko bangunan dengan stok terjaga.', 'color' => 'blue'],
+['title' => 'PENGIRIMAN MATERIAL', 'desc' => 'Kami melayani pengiriman semen dan material konstruksi ke berbagai lokasi proyek dengan penanganan yang aman.', 'color' => 'red'],
+['title' => 'ARMADA FLEKSIBEL', 'desc' => 'Tersedia truk PS, 6 roda, dan tronton 10 roda yang dapat disesuaikan dengan volume dan kebutuhan pengiriman Anda.', 'color' => 'blue'],
+['title' => 'TRACKING PENGIRIMAN', 'desc' => 'Pantau status dan posisi pengiriman Anda melalui sistem tracking kami agar jadwal proyek tetap terkontrol.', 'color' => 'red'],
 ];
 @endphp
 

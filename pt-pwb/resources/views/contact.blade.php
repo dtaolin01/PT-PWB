@@ -14,8 +14,7 @@
         <div class="contact-tag"><span class="contact-tag__line"></span> Hubungi Kami</div>
         <h1>Siap menjadi mitra<br>logistik Anda</h1>
         <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi porttitor urna id
-            interdum finibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Punya pertanyaan tentang harga semen, armada, atau jadwal pengiriman? Hubungi tim kami dan kami akan segera membantu Anda.
         </p>
     </div>
 </section>
@@ -29,7 +28,7 @@
                 <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.8a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
             </div>
             <h3>Telepon</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi porttitor urna id interdum finibus.</p>
+            <p>[+62 xxx-xxxx-xxxx]. Hubungi kami pada jam kerja untuk informasi dan pemesanan.</p>
         </article>
 
         <article class="contact-info__card">
@@ -37,7 +36,7 @@
                 <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
             </div>
             <h3>Email</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi porttitor urna id interdum finibus.</p>
+            <p>[info@domainanda.co.id]. Kirim pertanyaan atau permintaan penawaran, kami balas secepatnya.</p>
         </article>
 
         <article class="contact-info__card">
@@ -45,7 +44,7 @@
                 <svg viewBox="0 0 24 24"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
             </div>
             <h3>Alamat</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi porttitor urna id interdum finibus.</p>
+            <p>PT Putra Wijaya Berjaya, Jl. Raya Simpang Pasir Rt 29, Samarinda.</p>
         </article>
 
         <article class="contact-info__card">
@@ -53,7 +52,7 @@
                 <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
             </div>
             <h3>Jam Kerja</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi porttitor urna id interdum finibus.</p>
+            <p>Senin - Sabtu, 08.00 - 17.00 WITA.</p>
         </article>
 
     </div>

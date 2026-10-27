@@ -1,9 +1,9 @@
 @php
 $commitments = [
-['icon' => 'commitment-1.png', 'text' => 'Lorem ipsum dolor sit amet, consectetur'],
-['icon' => 'commitment-2.png', 'text' => 'Lorem ipsum dolor sit amet, consectetur'],
-['icon' => 'commitment-3.png', 'text' => 'Lorem ipsum dolor sit amet, consectetur'],
-['icon' => 'commitment-4.png', 'text' => 'Lorem ipsum dolor sit amet, consectetur'],
+['icon' => 'commitment-1.png', 'text' => 'Pengiriman aman dan terjaga kualitasnya'],
+['icon' => 'commitment-2.png', 'text' => 'Tepat waktu sesuai jadwal proyek'],
+['icon' => 'commitment-3.png', 'text' => 'Armada lengkap dan terawat'],
+['icon' => 'commitment-4.png', 'text' => 'Tim responsif dan profesional'],
 ];
 @endphp
 

@@ -14,9 +14,7 @@
                 </a>
 
                 <p class="pwb-footer-desc">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi porttitor urna id
-                    interdum finibus. Vivamus ultrices sodales sapien, eu iaculis lectus malesuada
-                    a. Morbi rutrum laoreet tempus.
+                    PT Putra Wijaya Berjaya adalah perusahaan logistik dan distributor semen Conch yang melayani pengiriman semen dan material konstruksi dengan aman, tepat waktu, dan profesional.
                 </p>
 
                 <div class="pwb-footer-social">
@@ -50,9 +48,9 @@
             <div class="pwb-footer-col">
                 <h4 class="pwb-footer-heading">Our Services</h4>
                 <ul class="pwb-footer-list">
-                    <li><a href="#">Armada 1</a></li>
-                    <li><a href="#">Armada 2</a></li>
-                    <li><a href="#">Armada 3</a></li>
+                    <li><a href="#">Truk PS</a></li>
+                    <li><a href="#">Truk 6 Roda</a></li>
+                    <li><a href="#">Tronton 10 Roda</a></li>
                 </ul>
             </div>
 
