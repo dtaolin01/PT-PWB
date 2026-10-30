@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Service;
 use App\Http\Requests\StoreServiceRequest;
 use App\Http\Requests\UpdateServiceRequest;
+use App\Models\Service;
 
 class ServiceController extends Controller
 {
@@ -63,8 +63,12 @@ class ServiceController extends Controller
     {
         //
     }
+
     public function service()
     {
-        return view('services');
+        $services = Service::where('category', 'service')->get();
+        $fleets = Service::where('category', 'fleet')->get();
+
+        return view('services', compact('services', 'fleets'));
     }
 }
