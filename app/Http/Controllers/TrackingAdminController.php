@@ -2,34 +2,55 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pengiriman;
 use Illuminate\Http\Request;
 
 class TrackingAdminController extends Controller
 {
     public function index(Request $request)
     {
-        // Nomor resi dari form pencarian (?resi=...). Sementara data tetap statis.
-        $resi = $request->query('resi');
+        $resi = trim((string) $request->query('resi'));
+
+        $query = Pengiriman::with(['pelanggan', 'truck', 'events']);
+
+        // Tanpa pencarian: tampilkan pengiriman terbaru sebagai contoh
+        $pengiriman = $resi !== ''
+            ? $query->where('no_resi', $resi)->first()
+            : $query->orderByDesc('tanggal_kirim')->orderByDesc('id')->first();
+
+        if (! $pengiriman) {
+            return view('trackingAdmin', [
+                'resi'           => $resi,
+                'detail'         => null,
+                'perjalanan'     => [],
+                'updateTerakhir' => null,
+            ]);
+        }
 
         $detail = [
-            'no_resi'   => 'PWB-20261026-0048',
-            'pelanggan' => 'PT. Maju Jaya',
-            'tujuan'    => 'Surabaya',
-            'muatan'    => 'Semen 50kg (25 ton)',
-            'armada'    => 'Truk Tronton BE 9347 XY',
-            'estimasi'  => '27 Okt 2026',
-            'status'    => 'Dalam Perjalanan',
+            'no_resi'   => $pengiriman->no_resi,
+            'pelanggan' => $pengiriman->pelanggan->nama,
+            'tujuan'    => $pengiriman->tujuan,
+            'muatan'    => $pengiriman->muatan,
+            'armada'    => $pengiriman->truck
+                ? 'Truk '.$pengiriman->truck->jenis.' '.$pengiriman->truck->plat
+                : 'Belum ditentukan',
+            'estimasi'  => $pengiriman->estimasi_tiba?->locale('id')->translatedFormat('j M Y') ?? '-',
+            'status'    => $pengiriman->status_label,
+            'warna'     => $pengiriman->status_warna,
         ];
 
-        // state: selesai | berjalan | menunggu
-        $perjalanan = [
-            ['judul' => 'Pengiriman Diterima', 'waktu' => '26 Okt 2026, 08:30 WIB', 'lokasi' => 'Jakarta',        'state' => 'selesai'],
-            ['judul' => 'Dalam Perjalanan',    'waktu' => '26 Okt 2026, 14:20 WIB', 'lokasi' => 'Tol Trans Jawa', 'state' => 'selesai'],
-            ['judul' => 'Menuju Tujuan',       'waktu' => '27 Okt 2026, 08:00 WIB', 'lokasi' => null,             'state' => 'menunggu'],
-            ['judul' => 'Tiba di Tujuan',      'waktu' => '27 Okt 2026, 12:00 WIB', 'lokasi' => null,             'state' => 'menunggu'],
-        ];
+        $perjalanan = $pengiriman->events->map(fn ($e) => [
+            'judul'  => $e->judul,
+            'waktu'  => $e->waktu ? $e->waktu->locale('id')->translatedFormat('j M Y, H:i').' WIB' : '',
+            'lokasi' => $e->lokasi,
+            'state'  => $e->selesai ? 'selesai' : 'menunggu',
+        ]);
 
-        $updateTerakhir = '26 Okt 2026, 14:20 WIB';
+        $terakhir = $pengiriman->events->where('selesai', true)->last();
+        $updateTerakhir = $terakhir?->waktu
+            ? $terakhir->waktu->locale('id')->translatedFormat('j M Y, H:i').' WIB'
+            : '-';
 
         return view('trackingAdmin', compact('resi', 'detail', 'perjalanan', 'updateTerakhir'));
     }

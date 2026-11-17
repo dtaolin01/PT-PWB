@@ -1,4 +1,4 @@
-@extends('layoutsAdmin.app')
+@extends('layouts.app')
 
 @section('page_title', 'Dashboard')
 @section('title', 'Dashboard Admin')
@@ -19,7 +19,7 @@
                     </div>
                 </div>
                 <p class="mt-5 text-xs text-slate-500">
-                    <span class="font-bold text-green-600">↑ {{ $s['naik'] }}</span> dari bulan lalu
+                    <span class="font-bold {{ $s['turun'] ? 'text-red-600' : 'text-green-600' }}">{{ $s['turun'] ? '↓' : '↑' }} {{ $s['naik'] }}</span> dari bulan lalu
                 </p>
             </div>
         @endforeach
@@ -78,7 +78,7 @@
                     fill: true,
                     tension: 0,
                     borderWidth: 3,
-                    pointRadius: 5,
+                    pointRadius: 3,
                     pointBackgroundColor: '#2563EB',
                 }]
             },
@@ -86,7 +86,7 @@
                 maintainAspectRatio: false,
                 plugins: { legend: { display: false } },
                 scales: {
-                    y: { min: 0, max: 1000, ticks: { stepSize: 250 }, grid: { color: '#E5EAF3' } },
+                    y: { beginAtZero: true, ticks: { precision: 0 }, grid: { color: '#E5EAF3' } },
                     x: { grid: { display: false } }
                 }
             }

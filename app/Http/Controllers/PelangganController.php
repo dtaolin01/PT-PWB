@@ -2,20 +2,82 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pelanggan;
+use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
+
 class PelangganController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $pelanggan = [
-            ['nama' => 'PT Maju Jaya',        'kontak' => 'Budi Santoso', 'email' => 'majujaya@email.com',        'alamat' => 'Jl. Merdeka No. 123, Jakarta'],
-            ['nama' => 'CV Bumi Konstruksi',  'kontak' => 'Ani Sari',     'email' => 'bumikonstruksi@email.com',  'alamat' => 'Jl. Sudirman No. 45, Bandung'],
-            ['nama' => 'PT Prima Logistik',   'kontak' => 'Rudi Hartono', 'email' => 'primalogistik@email.com',   'alamat' => 'Jl. Gatot Subroto No. 78, Surabaya'],
-            ['nama' => 'PT Sinar Abadi',      'kontak' => 'Dewi Lestari', 'email' => 'sinarabadi@email.com',      'alamat' => 'Jl. Diponegoro No. 10, Semarang'],
-            ['nama' => 'CV Jaya Teknik',      'kontak' => 'Andi Wijaya',  'email' => 'jayateknik@email.com',      'alamat' => 'Jl. Ahmad Yani No. 22, Malang'],
-        ];
+        $q = trim((string) $request->query('q'));
 
-        $info = 'Menampilkan 1-5 dari 15 data';
+        $data = Pelanggan::query()
+            ->when($q !== '', fn ($query) => $query->where('nama', 'like', "%{$q}%"))
+            ->orderBy('id')
+            ->paginate(5)
+            ->withQueryString();
 
-        return view('pelanggan', compact('pelanggan', 'info'));
+        $pelanggan = $data->getCollection()->map(fn ($p) => [
+            'nama'   => $p->nama,
+            'kontak' => $p->kontak,
+            'email'  => $p->email,
+            'alamat' => $p->alamat,
+            'edit'   => route('pelanggan.edit', $p),
+            'hapus'  => route('pelanggan.destroy', $p),
+        ]);
+
+        return view('pelanggan', compact('pelanggan', 'data', 'q'));
+    }
+
+    public function create()
+    {
+        return view('pelangganForm', ['pelanggan' => new Pelanggan()]);
+    }
+
+    public function store(Request $request)
+    {
+        Pelanggan::create($this->validasi($request));
+
+        return redirect()->route('pelanggan')->with('success', 'Data pelanggan berhasil ditambahkan.');
+    }
+
+    public function edit(Pelanggan $pelanggan)
+    {
+        return view('pelangganForm', compact('pelanggan'));
+    }
+
+    public function update(Request $request, Pelanggan $pelanggan)
+    {
+        $pelanggan->update($this->validasi($request, $pelanggan));
+
+        return redirect()->route('pelanggan')->with('success', 'Data pelanggan berhasil diperbarui.');
+    }
+
+    public function destroy(Pelanggan $pelanggan)
+    {
+        // Jangan hapus pelanggan yang masih punya pengiriman (di migration pengiriman ikut terhapus / cascade)
+        if ($pelanggan->pengiriman()->exists()) {
+            return redirect()->route('pelanggan')
+                ->with('error', 'Pelanggan tidak bisa dihapus karena masih punya data pengiriman.');
+        }
+
+        $pelanggan->delete();
+
+        return redirect()->route('pelanggan')->with('success', 'Data pelanggan berhasil dihapus.');
+    }
+
+    private function validasi(Request $request, ?Pelanggan $pelanggan = null): array
+    {
+        return $request->validate([
+            'nama'   => ['required', 'string', 'max:150'],
+            'kontak' => ['required', 'string', 'max:100'],
+            'email'  => ['required', 'email', 'max:150', Rule::unique('pelanggan', 'email')->ignore($pelanggan?->id)],
+            'alamat' => ['required', 'string', 'max:255'],
+        ], [
+            'email.unique' => 'Email sudah dipakai pelanggan lain.',
+        ], [
+            'nama' => 'nama perusahaan',
+        ]);
     }
 }

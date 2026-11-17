@@ -45,6 +45,17 @@
         </header>
 
         <section class="p-6">
+            @if (session('success'))
+                <div class="mb-4 rounded-lg border border-green-200 bg-green-50 px-4 py-3 text-sm font-semibold text-green-700">
+                    <i class="fa-solid fa-circle-check mr-2"></i>{{ session('success') }}
+                </div>
+            @endif
+            @if (session('error'))
+                <div class="mb-4 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm font-semibold text-red-700">
+                    <i class="fa-solid fa-circle-exclamation mr-2"></i>{{ session('error') }}
+                </div>
+            @endif
+
             @yield('content')
         </section>
     </main>

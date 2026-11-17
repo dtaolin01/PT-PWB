@@ -2,32 +2,71 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pelanggan;
+use App\Models\Pengiriman;
+use App\Models\Supir;
+use App\Models\Truck;
+
 class DashboardController extends Controller
 {
     public function index()
     {
-        // DATA STATIS (dummy). Nanti ganti dengan query Eloquent.
         $stats = [
-            ['label' => 'Total Pengiriman', 'nilai' => '1,250', 'naik' => '12%', 'ikon' => 'fa-cube',  'warna' => 'bg-blue-100 text-blue-600'],
-            ['label' => 'Total Truck',      'nilai' => '48',    'naik' => '2%',  'ikon' => 'fa-truck', 'warna' => 'bg-red-100 text-red-600'],
-            ['label' => 'Total Supir',      'nilai' => '72',    'naik' => '1%',  'ikon' => 'fa-user-tie', 'warna' => 'bg-amber-100 text-amber-600'],
-            ['label' => 'Total Pelanggan',  'nilai' => '85',    'naik' => '5%',  'ikon' => 'fa-users', 'warna' => 'bg-green-100 text-green-600'],
+            $this->kartu('Total Pengiriman', Pengiriman::class, 'fa-cube',     'bg-blue-100 text-blue-600'),
+            $this->kartu('Total Truck',      Truck::class,      'fa-truck',    'bg-red-100 text-red-600'),
+            $this->kartu('Total Supir',      Supir::class,      'fa-user-tie', 'bg-amber-100 text-amber-600'),
+            $this->kartu('Total Pelanggan',  Pelanggan::class,  'fa-users',    'bg-green-100 text-green-600'),
         ];
 
-        $grafik = [
-            'label' => ['1 Okt', '5 Okt', '9 Okt', '13 Okt', '17 Okt', '21 Okt', '25 Okt', '28 Okt'],
-            'data'  => [250, 400, 370, 500, 550, 650, 640, 820],
-        ];
+        // Grafik: jumlah pengiriman per hari selama 30 hari terakhir
+        $perHari = Pengiriman::where('tanggal_kirim', '>=', today()->subDays(29))
+            ->selectRaw('tanggal_kirim as tgl, COUNT(*) as total')
+            ->groupBy('tanggal_kirim')
+            ->pluck('total', 'tgl');
 
-        // warna: green | blue | red | amber
-        $pengirimanTerbaru = [
-            ['resi' => 'PWB-20261026-0048', 'status' => 'Dalam Perjalanan', 'warna' => 'green', 'tanggal' => '26 Okt'],
-            ['resi' => 'PWB-20261026-0047', 'status' => 'Terkirim',         'warna' => 'blue',  'tanggal' => '25 Okt'],
-            ['resi' => 'PWB-20261026-0046', 'status' => 'Terkirim',         'warna' => 'blue',  'tanggal' => '25 Okt'],
-            ['resi' => 'PWB-20261026-0045', 'status' => 'Tertunda',         'warna' => 'red',   'tanggal' => '24 Okt'],
-            ['resi' => 'PWB-20261026-0044', 'status' => 'Terkirim',         'warna' => 'blue',  'tanggal' => '24 Okt'],
-        ];
+        $label = [];
+        $data  = [];
+        for ($i = 29; $i >= 0; $i--) {
+            $hari    = today()->subDays($i);
+            $label[] = $hari->locale('id')->translatedFormat('j M');
+            $data[]  = (int) ($perHari[$hari->format('Y-m-d')] ?? 0);
+        }
+        $grafik = ['label' => $label, 'data' => $data];
+
+        $pengirimanTerbaru = Pengiriman::orderByDesc('tanggal_kirim')
+            ->orderByDesc('id')
+            ->limit(5)
+            ->get()
+            ->map(fn ($p) => [
+                'resi'    => $p->no_resi,
+                'status'  => $p->status_label,
+                'warna'   => $p->status_warna,
+                'tanggal' => $p->tanggal_kirim->locale('id')->translatedFormat('j M'),
+            ]);
 
         return view('dashboard', compact('stats', 'grafik', 'pengirimanTerbaru'));
+    }
+
+    /** Satu kartu statistik: total + perubahan data baru dibanding bulan lalu. */
+    private function kartu(string $label, string $model, string $ikon, string $warna): array
+    {
+        $bulanIni  = $model::where('created_at', '>=', now()->startOfMonth())->count();
+        $bulanLalu = $model::whereBetween('created_at', [
+            now()->subMonthNoOverflow()->startOfMonth(),
+            now()->subMonthNoOverflow()->endOfMonth(),
+        ])->count();
+
+        $persen = $bulanLalu > 0
+            ? round(($bulanIni - $bulanLalu) / $bulanLalu * 100)
+            : ($bulanIni > 0 ? 100 : 0);
+
+        return [
+            'label' => $label,
+            'nilai' => number_format($model::count(), 0, ',', '.'),
+            'naik'  => abs($persen).'%',
+            'turun' => $persen < 0,
+            'ikon'  => $ikon,
+            'warna' => $warna,
+        ];
     }
 }

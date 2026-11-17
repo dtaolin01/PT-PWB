@@ -10,7 +10,6 @@
 
 <div class="services-page">
 
-    {{-- ===== HERO ===== --}}
     <section class="services-hero">
         <img src="{{ asset('images/services_pwb.png') }}" alt="Armada PWB" class="services-image">
 
@@ -42,7 +41,6 @@
         </div>
     </section>
 
-    {{-- ===== KEUNGGULAN ===== --}}
     <div class="container">
         <div class="features">
             @foreach ($services as $service)
@@ -55,7 +53,7 @@
         </div>
     </div>
 
-    {{-- ===== JENIS ARMADA ===== --}}
+
     <div class="container2">
         <div class="eyebrow">Jenis Armada Kami</div>
         <h2 class="section-title">Kendaraan untuk setiap kebutuhan</h2>

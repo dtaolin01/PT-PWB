@@ -1,10 +1,10 @@
 @php
-    // [label, nama route, ikon FontAwesome]
+    // [label, nama route (untuk link), ikon FontAwesome, pola route yang dianggap "aktif"]
     $menus = [
-        ['Dashboard',     'dashboard', 'fa-house'],
-        ['Tracking',      'trackingAdmin',  'fa-location-dot'],
-        ['Truck & Supir', 'truck',     'fa-truck'],
-        ['Pelanggan',     'pelanggan', 'fa-users'],
+        ['Dashboard',     'dashboard',     'fa-house',        ['dashboard']],
+        ['Tracking',      'trackingAdmin', 'fa-location-dot', ['trackingAdmin']],
+        ['Truck & Supir', 'truck',         'fa-truck',        ['truck', 'truck.*', 'supir', 'supir.*']],
+        ['Pelanggan',     'pelanggan',     'fa-users',        ['pelanggan', 'pelanggan.*']],
     ];
 @endphp
 
@@ -14,9 +14,9 @@
     </div>
 
     <nav class="mt-12 space-y-2 px-3">
-        @foreach ($menus as [$label, $route, $ikon])
+        @foreach ($menus as [$label, $route, $ikon, $aktif])
             <a href="{{ route($route) }}"
-               class="flex items-center gap-4 rounded-lg px-4 py-3 text-sm {{ request()->routeIs($route) ? 'bg-pwb-blue font-bold' : 'font-medium hover:bg-white/10' }}">
+               class="flex items-center gap-4 rounded-lg px-4 py-3 text-sm {{ request()->routeIs(...$aktif) ? 'bg-pwb-blue font-bold' : 'font-medium hover:bg-white/10' }}">
                 <i class="fa-solid {{ $ikon }} w-5 text-center text-base"></i>
                 {{ $label }}
             </a>

@@ -1,4 +1,4 @@
-@extends('layoutsAdmin.app')
+@extends('layouts.app')
 
 @section('page_title', 'Tracking')
 @section('title', 'Tracking Pengiriman')
@@ -14,6 +14,7 @@
         </button>
     </form>
 
+    @if ($detail)
     <div class="mt-5 grid grid-cols-1 gap-5 lg:grid-cols-2">
         {{-- Detail pengiriman --}}
         <div class="rounded-xl border border-pwb-line bg-white p-5">
@@ -21,7 +22,7 @@
                 <h2 class="flex items-center gap-3 font-bold text-pwb-navy">
                     <i class="fa-solid fa-cube text-lg"></i> Detail Pengiriman
                 </h2>
-                <x-badge warna="blue">{{ $detail['status'] }}</x-badge>
+                <x-badge :warna="$detail['warna']">{{ $detail['status'] }}</x-badge>
             </div>
 
             <dl class="mt-5 space-y-4 text-sm">
@@ -78,4 +79,9 @@
         </div>
         <img src="{{ asset('images/map-rute.png') }}" alt="Peta rute Jakarta - Surabaya" class="mt-4 w-full rounded-lg">
     </div>
+    @else
+        <div class="mt-5 rounded-xl border border-pwb-line bg-white p-8 text-center text-sm text-slate-500">
+            Nomor resi <span class="font-bold text-slate-800">{{ $resi }}</span> tidak ditemukan.
+        </div>
+    @endif
 @endsection
